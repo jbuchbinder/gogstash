@@ -21,16 +21,16 @@ const ModuleName = "kafka"
 // InputConfig holds the configuration json fields and internal objects
 type InputConfig struct {
 	config.InputConfig
-	Version          string   `json:"version"`                     // Kafka cluster version, eg: 0.10.2.0
-	Brokers          []string `json:"brokers"`                     // Kafka bootstrap brokers to connect to, as a comma separated list
-	Topics           []string `json:"topics"`                      // Kafka topics to be consumed, as a comma separated list
-	Group            string   `json:"group"`                       // Kafka consumer group definition
-	OffsetOldest     bool     `json:"offset_oldest"`               // Kafka consumer consume initial offset from oldest
-	Assignor         string   `json:"assignor"`                    // Consumer group partition assignment strategy (range, roundrobin)
-	SecurityProtocol string   `json:"security_protocol,omitempty"` // use SASL authentication
-	SaslMechanism    string   `json:"sasl_mechanism,omitempty"`    // use SASL mechanism
-	User             string   `json:"sasl_username,omitempty"`     // SASL authentication username
-	Password         string   `json:"sasl_password,omitempty"`     // SASL authentication password
+	Version          string   `json:"version" yaml:"version"`                               // Kafka cluster version, eg: 0.10.2.0
+	Brokers          []string `json:"brokers" yaml:"brokers"`                               // Kafka bootstrap brokers to connect to, as a comma separated list
+	Topics           []string `json:"topics" yaml:"topics"`                                 // Kafka topics to be consumed, as a comma separated list
+	Group            string   `json:"group" yaml:"group"`                                   // Kafka consumer group definition
+	OffsetOldest     bool     `json:"offset_oldest" yaml:"offset_oldest"`                   // Kafka consumer consume initial offset from oldest
+	Assignor         string   `json:"assignor" yaml:"assignor"`                             // Consumer group partition assignment strategy (range, roundrobin)
+	SecurityProtocol string   `json:"security_protocol,omitempty" yaml:"security_protocol"` // use SASL authentication
+	SaslMechanism    string   `json:"sasl_mechanism,omitempty" yaml:"sasl_mechanism   "`    // use SASL mechanism
+	User             string   `json:"sasl_username,omitempty" yaml:"sasl_username"`         // SASL authentication username
+	Password         string   `json:"sasl_password,omitempty" yaml:"sasl_password"`         // SASL authentication password
 
 	saConf *sarama.Config
 }

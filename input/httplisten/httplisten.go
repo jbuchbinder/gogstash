@@ -25,12 +25,12 @@ const invalidAccessToken = "Invalid access token. Access denied."
 // InputConfig holds the configuration json fields and internal objects
 type InputConfig struct {
 	config.InputConfig
-	Address       string   `json:"address"` // host:port to listen on
-	Path          string   `json:"path"`    // The path to accept json HTTP POST requests on
-	ServerCert    string   `json:"cert"`
-	ServerKey     string   `json:"key"`
-	CA            string   `json:"ca"`             // for client certification
-	RequireHeader []string `json:"require_header"` // Require this header to be present to accept the POST ("X-Access-Token: Potato")
+	Address       string   `json:"address" yaml:"address"` // host:port to listen on
+	Path          string   `json:"path" yaml:"path"`    // The path to accept json HTTP POST requests on
+	ServerCert    string   `json:"cert" yaml:"ssl_cert"`
+	ServerKey     string   `json:"key" yaml:"ssl_key"`
+	CA            string   `json:"ca" yaml:"ssl_ca_cert"`             // for client certification
+	RequireHeader []string `json:"require_header" yaml:"require_header"` // Require this header to be present to accept the POST ("X-Access-Token: Potato")
 }
 
 // DefaultInputConfig returns an InputConfig struct with default values

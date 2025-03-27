@@ -75,8 +75,8 @@ input:
   - type: httplisten
     address: "127.0.0.1:8989"
     path: "/tls/"
-    cert: "./server.pem"
-    key:  "./server.key"
+    ssl_cert: "./server.pem"
+    ssl_key: "./server.key"
         `)))
 
 	require.NoError(err)
@@ -119,9 +119,9 @@ input:
   - type: httplisten
     address: "127.0.0.1:8999"
     path: "/tls2/"
-    cert: "./server.pem"
-    key:  "./server.key"
-    ca:   "./root.pem"
+    ssl_cert: "./server.pem"
+    ssl_key:  "./server.key"
+    ssl_ca_cert:   "./root.pem"
         `)))
 
 	require.NoError(err)

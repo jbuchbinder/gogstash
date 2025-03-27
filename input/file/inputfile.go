@@ -26,10 +26,10 @@ const ModuleName = "file"
 // InputConfig holds the configuration json fields and internal objects
 type InputConfig struct {
 	config.InputConfig
-	Path                 string `json:"path"`
-	StartPos             string `json:"start_position,omitempty"` // one of ["beginning", "end"]
-	SinceDBPath          string `json:"sincedb_path,omitempty"`
-	SinceDBWriteInterval int    `json:"sincedb_write_interval,omitempty"`
+	Path                 string `json:"path" yaml:"path"`
+	StartPos             string `json:"start_position,omitempty" yaml:"start_position""` // one of ["beginning", "end"]
+	SinceDBPath          string `json:"sincedb_path,omitempty" yaml:"sincedb_path"`
+	SinceDBWriteInterval int    `json:"sincedb_write_interval,omitempty" yaml:"sincedb_write_interval"`
 
 	hostname            string
 	SinceDBInfos        map[string]*SinceDBInfo `json:"-"`

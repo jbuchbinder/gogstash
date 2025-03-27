@@ -21,15 +21,15 @@ const ModuleName = "dockerlog"
 // InputConfig holds the configuration json fields and internal objects
 type InputConfig struct {
 	config.InputConfig
-	DockerURL               string   `json:"dockerurl"`
-	IncludePatterns         []string `json:"include_patterns"`
-	ExcludePatterns         []string `json:"exclude_patterns"`
-	SincePath               string   `json:"sincepath"`
-	StartPos                string   `json:"start_position,omitempty"` // one of ["beginning", "end"]
-	ConnectionRetryInterval int      `json:"connection_retry_interval,omitempty"`
-	TLSCert                 string   `json:"tls_cert,omitempty"`
-	TLSCertKey              string   `json:"tls_cert_key,omitempty"`
-	TLSCaCert               string   `json:"tls_ca_cert,omitempty"`
+	DockerURL               string   `json:"dockerurl" yaml:"dockerurl"`
+	IncludePatterns         []string `json:"include_patterns" yaml:"include_patterns"`
+	ExcludePatterns         []string `json:"exclude_patterns" yaml:"exclude_patterns"`
+	SincePath               string   `json:"sincepath" yaml:"sincepath"`
+	StartPos                string   `json:"start_position,omitempty" yaml:"start_position"` // one of ["beginning", "end"]
+	ConnectionRetryInterval int      `json:"connection_retry_interval,omitempty" yaml:"connection_retry_interval"`
+	TLSCert                 string   `json:"tls_cert,omitempty" yaml:"tls_cert"`
+	TLSCertKey              string   `json:"tls_cert_key,omitempty" yaml:"tls_cert_key"`
+	TLSCaCert               string   `json:"tls_ca_cert,omitempty" yaml:"tls_ca_cert"`
 
 	containerExist dockertool.StringExist
 	sincedb        *SinceDB

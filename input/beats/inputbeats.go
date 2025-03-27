@@ -23,21 +23,21 @@ type InputConfig struct {
 	config.InputConfig
 
 	// The IP address to listen on, defaults to "0.0.0.0"
-	Host string `json:"host"`
+	Host string `json:"host" yaml:"host"`
 	// The port to listen on.
-	Port int `json:"port"`
+	Port int `json:"port" yaml:"port"`
 	// Here we enable SO_REUSEPORT, see more information:
 	// https://github.com/libp2p/go-reuseport
-	ReusePort bool `json:"reuseport"`
+	ReusePort bool `json:"reuseport" yaml:"reuseport"`
 
 	// Enable ssl transport, defaults to false
-	SSL bool `json:"ssl"`
+	SSL bool `json:"ssl" yaml:"ssl"`
 	// SSL certificate to use.
-	SSLCertificate string `json:"ssl_certificate"`
+	SSLCertificate string `json:"ssl_certificate" yaml:"ssl_certificate"`
 	// SSL key to use.
-	SSLKey string `json:"ssl_key"`
+	SSLKey string `json:"ssl_key" yaml:"ssl_key"`
 	// SSL Verify, defaults to false
-	SSLVerify bool `json:"ssl_verify"`
+	SSLVerify bool `json:"ssl_verify" yaml:"ssl_verify"`
 
 	tlsConfig *tls.Config
 }

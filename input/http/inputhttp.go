@@ -23,9 +23,9 @@ const ErrorTag = "gogstash_input_http_error"
 // InputConfig holds the configuration json fields and internal objects
 type InputConfig struct {
 	config.InputConfig
-	Method   string `json:"method,omitempty"` // one of ["HEAD", "GET"]
-	URL      string `json:"url"`
-	Interval int    `json:"interval,omitempty"`
+	Method   string `json:"method,omitempty" yaml:"method"` // one of ["HEAD", "GET"]
+	URL      string `json:"url" yaml:"url"`
+	Interval int    `json:"interval,omitempty" yaml:"interval"`
 
 	control  config.Control
 	hostname string

@@ -21,13 +21,13 @@ const ModuleName = "azureeventhub"
 // InputConfig holds the configuration json fields and internal objects
 type InputConfig struct {
 	config.InputConfig
-	EventHubNamespaceConnectionString string         `json:"eventhub_namespace_connection_string"`
-	EventHub                          string         `json:"eventhub"`
-	StorageConnectionString           string         `json:"storage_connection_string"`
-	StorageContainer                  string         `json:"storage_container"`
-	ConsumerGroup                     string         `json:"group"`
-	OffsetEarliest                    bool           `json:"offset_earliest"`
-	Extras                            map[string]any `json:"extras"`
+	EventHubNamespaceConnectionString string         `json:"eventhub_namespace_connection_string" yaml:"eventhub_namespace_connection_string"`
+	EventHub                          string         `json:"eventhub" yaml:"eventhub"`
+	StorageConnectionString           string         `json:"storage_connection_string" yaml:"storage_connection_string"`
+	StorageContainer                  string         `json:"storage_container" yaml:"storage_container"`
+	ConsumerGroup                     string         `json:"group" yaml:"group"`
+	OffsetEarliest                    bool           `json:"offset_earliest" yaml:"offset_earliest"`
+	Extras                            map[string]any `json:"extras" yaml:"extras"`
 }
 
 // DefaultInputConfig returns an InputConfig struct with default values

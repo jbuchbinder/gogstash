@@ -21,15 +21,15 @@ const ModuleName = "dockerstats"
 // InputConfig holds the configuration json fields and internal objects
 type InputConfig struct {
 	config.InputConfig
-	DockerURL               string   `json:"dockerurl"`
-	IncludePatterns         []string `json:"include_patterns"`
-	ExcludePatterns         []string `json:"exclude_patterns"`
-	StatInterval            int      `json:"stat_interval"`
-	ConnectionRetryInterval int      `json:"connection_retry_interval,omitempty"`
-	LogMode                 Mode     `json:"log_mode,omitempty"`
-	TLSCert                 string   `json:"tls_cert,omitempty"`
-	TLSCertKey              string   `json:"tls_cert_key,omitempty"`
-	TLSCaCert               string   `json:"tls_ca_cert,omitempty"`
+	DockerURL               string   `json:"dockerurl" yaml:"dockerurl"`
+	IncludePatterns         []string `json:"include_patterns" yaml:"include_patterns"`
+	ExcludePatterns         []string `json:"exclude_patterns" yaml:"exclude_patterns"`
+	StatInterval            int      `json:"stat_interval" yaml:"stat_interval"`
+	ConnectionRetryInterval int      `json:"connection_retry_interval,omitempty" yaml:"connection_retry_interval"`
+	LogMode                 Mode     `json:"log_mode,omitempty" yaml:"log_mode"`
+	TLSCert                 string   `json:"tls_cert,omitempty" yaml:"tls_cert"`
+	TLSCertKey              string   `json:"tls_cert_key,omitempty" yaml:"tls_cert_key"`
+	TLSCaCert               string   `json:"tls_ca_cert,omitempty" yaml:"tls_ca_cert"`
 
 	sincemap
 	containerExist dockertool.StringExist

@@ -24,12 +24,12 @@ const ErrorTag = "gogstash_input_exec_error"
 // InputConfig holds the configuration json fields and internal objects
 type InputConfig struct {
 	config.InputConfig
-	Command   string   `json:"command"`                  // Command to run. e.g. “uptime”
-	Args      []string `json:"args,omitempty"`           // Arguments of command
-	Interval  int      `json:"interval,omitempty"`       // Second, default: 60
-	MsgTrim   string   `json:"message_trim,omitempty"`   // default: " \t\r\n"
-	MsgPrefix string   `json:"message_prefix,omitempty"` // only in text type, e.g. "%{@timestamp} [uptime] "
-	MsgType   MsgType  `json:"message_type,omitempty"`   // default: "text"
+	Command   string   `json:"command" yaml:"command"`                         // Command to run. e.g. “uptime”
+	Args      []string `json:"args,omitempty" yaml:"args"`                     // Arguments of command
+	Interval  int      `json:"interval,omitempty" yaml:"interval"`             // Second, default: 60
+	MsgTrim   string   `json:"message_trim,omitempty" yaml:"message_trim"`     // default: " \t\r\n"
+	MsgPrefix string   `json:"message_prefix,omitempty" yaml:"message_prefix"` // only in text type, e.g. "%{@timestamp} [uptime] "
+	MsgType   MsgType  `json:"message_type,omitempty" yaml:"message_type"`     // default: "text"
 
 	hostname string
 }
