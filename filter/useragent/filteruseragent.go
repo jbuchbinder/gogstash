@@ -2,9 +2,11 @@ package filteruseragent
 
 import (
 	"context"
+	"os"
 
 	lru "github.com/hashicorp/golang-lru"
 	"github.com/ua-parser/uap-go/uaparser"
+	"go.yaml.in/yaml/v2"
 
 	"github.com/tsaikd/gogstash/config"
 	"github.com/tsaikd/gogstash/config/logevent"
@@ -97,7 +99,17 @@ func InitHandler(
 	if conf.Regexes == "" {
 		conf.parser = uaparser.NewFromSaved()
 	} else {
-		conf.parser, err = uaparser.New(conf.Regexes)
+		regexes, err := os.ReadFile(conf.Regexes)
+		if err != nil {
+			return nil, err
+		}
+
+		var def uaparser.RegexDefinitions
+		if err := yaml.Unmarshal(regexes, &def); err != nil {
+			return nil, err
+		}
+
+		conf.parser, err = uaparser.New(uaparser.WithRegexDefinitions(def))
 		if err != nil {
 			return nil, err
 		}
