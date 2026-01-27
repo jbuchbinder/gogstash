@@ -1,6 +1,6 @@
 module github.com/tsaikd/gogstash
 
-go 1.22
+go 1.24
 
 replace github.com/tsaikd/gogstash => ./
 
